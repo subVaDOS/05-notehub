@@ -20,7 +20,7 @@ export async function fetchNotes(
       ...(search && { search }),
     },
     headers: {
-      Authorization: `Bearer ${myKey}`,
+      Authorization: `manokha.vadim@gmail.com ${myKey}`,
     },
   });
 
@@ -30,7 +30,7 @@ export async function fetchNotes(
 export async function createNote(newNote: CreateNote): Promise<Note> {
   const response = await axios.post<Note>(`${baseUrl}`, newNote, {
     headers: {
-      Authorization: `Bearer ${myKey}`,
+      Authorization: `manokha.vadim@gmail.com ${myKey}`,
     },
   });
   return response.data;
@@ -39,7 +39,7 @@ export async function createNote(newNote: CreateNote): Promise<Note> {
 export async function deleteNote(id: number): Promise<Note> {
   const response = await axios.delete<Note>(`${baseUrl}/${id}`, {
     headers: {
-      Authorization: `Bearer ${myKey}`,
+      Authorization: `manokha.vadim@gmail.com ${myKey}`,
     },
   });
   return response.data;
