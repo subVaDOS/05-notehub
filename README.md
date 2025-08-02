@@ -34,20 +34,32 @@
 Структура:
 src/
 │
+
 ├── components/ # Всі UI-компоненти
+
 │ ├── App/
+
 │ ├── NoteList/
+
 │ ├── NoteForm/
+
 │ ├── Modal/
+
 │ ├── Pagination/
+
 │ └── SearchBox/
+
 │
+
 ├── services/ # HTTP-запити до API
 │ └── noteService.ts
+
 │
 ├── types/ # Типізація
 │ └── note.ts
+
 │
 ├── styles/ # Стилі (із репозиторію GoIT)
+
 │
 └── main.tsx # Точка входу
