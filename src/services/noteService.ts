@@ -2,7 +2,7 @@ import axios from "axios";
 import type { CreateNote, Note } from "../types/note";
 
 const baseUrl = "https://notehub-public.goit.study/api/notes";
-const myKey = import.meta.env.VITE_API_KEY;
+const myKey = import.meta.env.VITE_NOTEHUB_TOKEN;
 
 interface FetchNotesRes {
   notes: Note[];
