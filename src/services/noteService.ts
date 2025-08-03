@@ -36,10 +36,10 @@ export async function createNote(newNote: CreateNote): Promise<Note> {
   return response.data;
 }
 
-export async function deleteNote(id: number): Promise<Note> {
+export async function deleteNote(id: string): Promise<Note> {
   const response = await axios.delete<Note>(`${baseUrl}/${id}`, {
     headers: {
-      Authorization: `manokha.vadim@gmail.com ${myKey}`,
+      Authorization: `Bearer ${myKey}`,
     },
   });
   return response.data;
