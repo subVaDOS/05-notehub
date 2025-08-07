@@ -1,9 +1,11 @@
 import axios from "axios";
 import type { CreateNote, Note } from "../types/note";
 
-const baseUrl = "https://notehub-public.goit.study/api/auth";
+const baseUrl = "https://notehub-public.goit.study/api/notes";
 const myKey = import.meta.env.VITE_NOTEHUB_TOKEN;
+const myLogin = import.meta.env.VITE_NOTEHUB_LOGIN;
 
+console.log(myLogin);
 interface FetchNotesRes {
   notes: Note[];
   totalPages: number;
@@ -20,7 +22,7 @@ export async function fetchNotes(
       ...(search && { search }),
     },
     headers: {
-      Authorization: `Bearer ${myKey}`,
+      Authorization: `student@notehub.app ${myKey}`,
     },
   });
 
@@ -30,7 +32,7 @@ export async function fetchNotes(
 export async function createNote(newNote: CreateNote): Promise<Note> {
   const response = await axios.post<Note>(`${baseUrl}`, newNote, {
     headers: {
-      Authorization: `Bearer ${myKey}`,
+      Authorization: `student@notehub.app ${myKey}`,
     },
   });
   return response.data;
@@ -39,7 +41,7 @@ export async function createNote(newNote: CreateNote): Promise<Note> {
 export async function deleteNote(id: string): Promise<Note> {
   const response = await axios.delete<Note>(`${baseUrl}/${id}`, {
     headers: {
-      Authorization: `Bearer ${myKey}`,
+      Authorization: `student@notehub.app ${myKey}`,
     },
   });
   return response.data;

@@ -14,7 +14,7 @@ export default function NoteList({ notes }: NoteListProps) {
   const [loadingNoteId, setLoadingNoteId] = useState<string | null>(null);
 
   const { mutate, isPending } = useMutation({
-    mutationFn: (id: string) => deleteNote(Number(id)),
+    mutationFn: (id: string) => deleteNote(String(id)),
     onMutate: (id: string) => {
       setLoadingNoteId(id);
     },
