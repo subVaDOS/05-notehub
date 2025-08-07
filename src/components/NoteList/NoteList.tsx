@@ -4,15 +4,12 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteNote } from "@/services/noteService";
 import { useState } from "react";
 import toast from "react-hot-toast";
-
 interface NoteListProps {
   notes: Note[];
 }
-
 export default function NoteList({ notes }: NoteListProps) {
   const queryClient = useQueryClient();
   const [loadingNoteId, setLoadingNoteId] = useState<string | null>(null);
-
   const { mutate, isPending } = useMutation({
     mutationFn: (id: string) => deleteNote(String(id)),
     onMutate: (id: string) => {
@@ -27,7 +24,6 @@ export default function NoteList({ notes }: NoteListProps) {
       toast.error("Something went wrong...Try again, please");
     },
   });
-
   return (
     <ul className={css.list}>
       {notes.map((note) => (
