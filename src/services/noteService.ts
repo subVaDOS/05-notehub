@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { CreateNote, Note } from "../types/note";
 
-const baseUrl = "https://notehub-public.goit.study/api/notes";
+const baseUrl = "https://notehub-public.goit.study/api/auth";
 const myKey = import.meta.env.VITE_NOTEHUB_TOKEN;
 
 interface FetchNotesRes {
@@ -20,7 +20,7 @@ export async function fetchNotes(
       ...(search && { search }),
     },
     headers: {
-      Authorization: `manokha.vadim@gmail.com ${myKey}`,
+      Authorization: `Bearer ${myKey}`,
     },
   });
 
@@ -30,7 +30,7 @@ export async function fetchNotes(
 export async function createNote(newNote: CreateNote): Promise<Note> {
   const response = await axios.post<Note>(`${baseUrl}`, newNote, {
     headers: {
-      Authorization: `manokha.vadim@gmail.com ${myKey}`,
+      Authorization: `Bearer ${myKey}`,
     },
   });
   return response.data;
